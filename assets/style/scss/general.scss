@@ -1,0 +1,406 @@
+//Noto sans JP
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&subset=japanese');
+//Sawarabi Mincho
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho&subset=japanese');
+
+//font-size
+html,
+body {
+  font-size: 62.5%;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  height: 100%;
+  @include breakpoint-max(1024px) {
+    font-size: (10 / 375) * 100vw;
+  }
+}
+body {
+  overflow-y: scroll;
+}
+
+//box-sizing
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+ul,
+dl {
+  padding: 0;
+  list-style: none;
+}
+
+p,
+a {
+  text-decoration: none;
+  color: $color-text;
+  font-size: 1.6rem;
+  @include breakpoint-max(1024px) {
+    font-size: 1.3rem;
+  }
+}
+
+button:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.container {
+  @include breakpoint-min($break-md) {
+    max-width: 1250px !important;
+  }
+}
+
+// Font
+.header-1 {
+  font-size: 3rem;
+  @include breakpoint-max(1024px) {
+    font-size: 2rem;
+  }
+}
+.header-2 {
+  font-size: 2.4rem;
+  @include breakpoint-max(1024px) {
+    font-size: 1.8rem;
+  }
+}
+.header-3 {
+  font-size: 2rem;
+  @include breakpoint-max(1024px) {
+    font-size: 1.6rem;
+  }
+}
+.text-large {
+  font-size: 1.8rem;
+  @include breakpoint-max(1024px) {
+    font-size: 1.6rem;
+  }
+}
+.text-standard {
+  font-size: 1.6rem;
+  @include breakpoint-max(1024px) {
+    font-size: 1.3rem;
+  }
+}
+.date-text {
+  font-size: 1.5rem;
+  color: $color-dark-gray;
+  @include breakpoint-max(1024px) {
+    font-size: 1.3rem;
+  }
+}
+.btn-text {
+  font-size: 1.6rem;
+}
+.warning-text {
+  color: $color-red;
+}
+
+// text required in form registration
+.text-required {
+  font-size: 1.2rem;
+  @include breakpoint-max(1024px) {
+    font-size: 0.9rem;
+  }
+}
+
+// Radio button
+[type='radio']:checked,
+[type='radio']:not(:checked) {
+  display: none;
+}
+[type='radio']:checked + label,
+[type='radio']:not(:checked) + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+}
+[type='radio']:checked + label:before,
+[type='radio']:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $color-dark-gray;
+  border-radius: 100%;
+  background: transparent;
+}
+[type='radio']:checked + label:after,
+[type='radio']:not(:checked) + label:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: $color-navy-blue;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[type='radio']:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type='radio']:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+// checkbox
+.general-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+[type='checkbox']:checked,
+[type='checkbox']:not(:checked) {
+  display: none;
+}
+[type='checkbox']:checked + label,
+[type='checkbox']:not(:checked) + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 1;
+  display: inline-block;
+}
+[type='checkbox']:checked + label:before,
+[type='checkbox']:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $color-dark-gray;
+  border-radius: 4px;
+  background: transparent;
+}
+[type='checkbox']:checked + label:after,
+[type='checkbox']:not(:checked) + label:after {
+  content: '';
+  width: 9px;
+  height: 11px;
+  position: absolute;
+  top: 40%;
+  left: 2px;
+  border: 2px solid $color-navy-blue;
+  border-width: 0 3px 3px 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[type='checkbox']:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0) rotate(45deg);
+  transform: scale(0) rotate(45deg);
+}
+[type='checkbox']:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(45deg) translateY(-50%);
+  transform: scale(1) rotate(45deg) translateY(-50%);
+}
+
+//btns
+%btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 24px;
+  outline: none;
+  border-radius: 100px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 40px;
+  color: $color-light-text;
+  &:hover,
+  &:active {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  [class^='icon-']:before {
+    font-size: 1.3em;
+    margin-right: 0.2em;
+  }
+
+  @include breakpoint-max(1024px) {
+    height: (40 / 375) * 100vw;
+    padding: 0 (24 / 375) * 100vw;
+    font-size: 1.6rem;
+    line-height: calc(((24 / 375) * 100vw) - 4px);
+    font-weight: normal;
+  }
+}
+
+.btn-white {
+  @extend %btn;
+  border: 2px solid $color-navy-blue;
+  background: $color-white;
+  color: $color-navy-blue;
+  &:hover,
+  &:active {
+    background: $color-dull-blue;
+    color: $color-white;
+  }
+}
+
+.btn-blue {
+  @extend %btn;
+  background: $color-navy-blue;
+  &:hover,
+  &:active {
+    background: $color-dull-blue;
+  }
+}
+
+.btn-red {
+  @extend %btn;
+  background: $color-red;
+  &:hover,
+  &:active {
+    background: $color-light-red;
+  }
+}
+
+.btn-gray {
+  @extend %btn;
+  background: $color-dark-gray;
+  &:hover,
+  &:active {
+    background: $color-gray;
+  }
+}
+
+.btn-disable {
+  @extend %btn;
+  background: $color-dark-gray;
+  pointer-events: none;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.btn-flat {
+  @extend %btn;
+  border: 2px solid white;
+  &:hover,
+  &:active {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+//content-container 背景灰のコンテナ
+.bg-light-gray {
+  background: $color-light-gray;
+}
+
+//common-container 背景白のコンテナ
+.common-container {
+  padding: 40px 0;
+  .heading-01 {
+    margin-bottom: 8px;
+    color: $color-navy-blue;
+  }
+}
+
+//svg-icon
+.svg-icon {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.v-dialog__content {
+  z-index: 1902 !important;
+  // align-items: flex-start !important;
+  flex-direction:column;
+  .v-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: unset;
+    width: auto !important;
+    margin: 0 auto !important;
+  }
+}
+
+@include breakpoint-max($break-sp) {
+  .v-dialog__content {
+    .v-dialog {
+    }
+  }
+}
+
+.v-overlay--active {
+  z-index: 1900 !important;
+  &:before {
+    opacity: 0.8 !important;
+    background-color: #000 !important;
+  }
+  &:nth-child(2) {
+    z-index: 1902 !important;
+  }
+}
+
+.v-carousel .v-image .v-image__image {
+  background-size: contain;
+}
+
+.gn-modal-input-field {
+  border: 1px solid $color-gray;
+  background-color: $color-textarea;
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 20px;
+  outline: none;
+  @include breakpoint-max($break-sp) {
+    height: 8vw;
+    border-radius: 4vw;
+    padding: 0 4vw;
+  }
+}
+
+// use for modal zoom image (album detail, avata profile . . . )
+.full-screen {
+  .full-screen__btn-close {
+    width: 100%;
+    height: 30px;
+    text-align: right;
+    margin-bottom: 5px;
+    span {
+      color: white;
+      opacity: 0.7;
+      font-size: 25px;
+      font-weight: bold;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .full-screen__img {
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: calc(90vh - 35px);
+    overflow: auto;
+    img {
+      display: block;
+    }
+  }
+}
+// end

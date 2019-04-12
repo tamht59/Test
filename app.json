@@ -1,0 +1,8 @@
+{
+  "localBaseUrl": "http://localhost",
+  "localHost": "localhost",
+  "devBaseUrl": "http://dev-spiritual-backend.bap.jp/",
+  "devHost": "0.0.0.0",
+  "prodBaseUrl": "http://livenet-web",
+  "prodHost": "0.0.0.1"
+}
